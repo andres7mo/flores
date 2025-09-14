@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,12 +7,42 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="icon" href="img/flowers.png" type="image/x-icon">
     <title>FLORES</title>
+    <style>
+      /* Botón fijo y grande para móvil */
+      #play-btn {
+        position: fixed;
+        top: 16px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 9999;
+        font-size: 1.2rem;
+        padding: 14px 32px;
+        background: #ff69b4;
+        color: #fff;
+        border: none;
+        border-radius: 24px;
+        cursor: pointer;
+        box-shadow: 0 0 10px #ff69b4;
+      }
+      @media (max-width: 600px) {
+        #play-btn {
+          font-size: 1rem;
+          padding: 10px 18px;
+        }
+        .flowers {
+          transform: scale(0.7);
+        }
+      }
+      /* Ajusta el contenido para móvil */
+      body {
+        padding-top: 70px;
+      }
+    </style>
 </head>
 
 <body class="container">
-    <audio src="img/Floricienta.mp3" controls autoplay loop>
-    Tu navegador no soporta el elemento de audio.
-    </audio>
+    <audio id="bg-music" src="img/ChristianBasso&HaienQiu-Flowers.mp3" loop></audio>
+    <button id="play-btn">Reproducir música</button>
     <div class="night"></div>
     <div class="flowers">
       <div class="flower flower--1">
@@ -275,6 +305,12 @@
         </div>
       </div>
     </div>
+    <script>
+      document.getElementById('play-btn').onclick = function() {
+        document.getElementById('bg-music').play();
+        this.style.display = 'none';
+      };
+    </script>
     <script src="main.js"></script>
   </body>
 </html>
