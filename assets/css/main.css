@@ -48,6 +48,246 @@ body {
   rgb(240, 240, 240));
 }
 
+/* Fondo animado con partículas y gradiente suave */
+body::before {
+  content: "";
+  position: fixed;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 20% 30%, #fff6 0%, transparent 60%),
+              radial-gradient(circle at 80% 70%, #ffe06655 0%, transparent 70%),
+              linear-gradient(135deg, #ffe0f7 0%, #ffe066 100%);
+  animation: shineBG 8s linear infinite;
+}
+
+@keyframes shineBG {
+  0% {background-position: 0% 50%;}
+  100% {background-position: 100% 50%;}
+}
+
+/* Corazones flotando */
+.hearts-bg {
+  position: fixed;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+.heart {
+  position: absolute;
+  width: 32px; height: 32px;
+  background: url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/2764.svg') no-repeat center/contain;
+  opacity: 0.7;
+  animation: floatHeart 8s linear infinite;
+}
+@keyframes floatHeart {
+  0% { transform: translateY(100vh) scale(0.8) rotate(-10deg);}
+  100% { transform: translateY(-10vh) scale(1.2) rotate(20deg);}
+}
+
+/* Mariposas animadas */
+.butterflies-bg {
+  position: fixed;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+.butterfly {
+  position: absolute;
+  width: 38px; height: 38px;
+  background: url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f98b.svg') no-repeat center/contain;
+  opacity: 0.85;
+  animation: flyButterfly 10s linear infinite;
+}
+@keyframes flyButterfly {
+  0% { transform: translateY(100vh) scale(0.8) rotate(-10deg);}
+  20% { transform: translateY(80vh) scale(1) rotate(10deg);}
+  40% { transform: translateY(60vh) scale(1.1) rotate(-5deg);}
+  60% { transform: translateY(40vh) scale(1.2) rotate(15deg);}
+  80% { transform: translateY(20vh) scale(1.1) rotate(-10deg);}
+  100% { transform: translateY(-10vh) scale(1.2) rotate(20deg);}
+}
+
+/* Animación de entrada para las flores */
+.flowers {
+  animation: fadeInFlowers 2s cubic-bezier(.68,-0.55,.27,1.55) forwards;
+  opacity: 0;
+}
+@keyframes fadeInFlowers {
+  0% { opacity: 0; transform: scale(0.7) translateY(40px);}
+  100% { opacity: 1; transform: scale(0.9) translateY(0);}
+}
+
+/* Efecto de resplandor en las flores */
+.flower {
+  filter: drop-shadow(0 0 24px #ff69b4) drop-shadow(0 0 40px #ffe066);
+  transition: filter 0.4s;
+}
+.flower:hover {
+  filter: drop-shadow(0 0 48px #ff69b4) drop-shadow(0 0 80px #ffe066) brightness(1.2);
+  transform: scale(1.05);
+}
+
+/* Animación de luces más brillante */
+.flower__light {
+  animation: lightGlow 2s alternate infinite, light-ans 4s linear infinite backwards;
+  box-shadow: 0 0 24px #ffe066, 0 0 40px #ff69b4, 0 0 80px #fff;
+}
+@keyframes lightGlow {
+  0% { filter: blur(0.2vmin) brightness(1); }
+  100% { filter: blur(1vmin) brightness(2); }
+}
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --dark-color: #000;
+}
+
+body {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--dark-color);
+  overflow: hidden;
+  perspective: 1000px;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  background: linear-gradient(135deg, #ffe0f7 0%, #ffe066 100%);
+  background-size: 400% 400%;
+  animation: gradientBG 12s ease infinite;
+  box-shadow: 0 0 80px #ffe06644 inset;
+}
+
+@keyframes gradientBG {
+  0%, 100% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+}
+
+.night {
+  position: fixed;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  filter: blur(0.1vmin);
+  background-image: radial-gradient(ellipse at top, transparent 0%, var(--dark-color)), 
+  radial-gradient(ellipse at bottom, var(--dark-color), rgba(145, 233, 255, 0.2)), 
+  repeating-linear-gradient(220deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px, transparent 19px, 
+  transparent 22px), repeating-linear-gradient(189deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px, 
+  transparent 19px, transparent 22px), repeating-linear-gradient(148deg, rgb(0, 0, 0) 0px, 
+  rgb(0, 0, 0) 19px, transparent 19px, transparent 22px), linear-gradient(90deg, rgb(21, 255, 0), 
+  rgb(240, 240, 240));
+}
+
+/* Fondo animado con partículas y gradiente suave */
+body::before {
+  content: "";
+  position: fixed;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 20% 30%, #fff6 0%, transparent 60%),
+              radial-gradient(circle at 80% 70%, #ffe06655 0%, transparent 70%),
+              linear-gradient(135deg, #ffe0f7 0%, #ffe066 100%);
+  animation: shineBG 8s linear infinite;
+}
+
+@keyframes shineBG {
+  0% {background-position: 0% 50%;}
+  100% {background-position: 100% 50%;}
+}
+
+/* Corazones flotando */
+.hearts-bg {
+  position: fixed;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+.heart {
+  position: absolute;
+  width: 32px; height: 32px;
+  background: url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/2764.svg') no-repeat center/contain;
+  opacity: 0.7;
+  animation: floatHeart 8s linear infinite;
+}
+@keyframes floatHeart {
+  0% { transform: translateY(100vh) scale(0.8) rotate(-10deg);}
+  100% { transform: translateY(-10vh) scale(1.2) rotate(20deg);}
+}
+
+/* Mariposas animadas */
+.butterflies-bg {
+  position: fixed;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+.butterfly {
+  position: absolute;
+  width: 38px; height: 38px;
+  background: url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f98b.svg') no-repeat center/contain;
+  opacity: 0.85;
+  animation: flyButterfly 10s linear infinite;
+}
+@keyframes flyButterfly {
+  0% { transform: translateY(100vh) scale(0.8) rotate(-10deg);}
+  20% { transform: translateY(80vh) scale(1) rotate(10deg);}
+  40% { transform: translateY(60vh) scale(1.1) rotate(-5deg);}
+  60% { transform: translateY(40vh) scale(1.2) rotate(15deg);}
+  80% { transform: translateY(20vh) scale(1.1) rotate(-10deg);}
+  100% { transform: translateY(-10vh) scale(1.2) rotate(20deg);}
+}
+
+/* Animación de entrada para las flores */
+.flowers {
+  animation: fadeInFlowers 2s cubic-bezier(.68,-0.55,.27,1.55) forwards;
+  opacity: 0;
+}
+@keyframes fadeInFlowers {
+  0% { opacity: 0; transform: scale(0.7) translateY(40px);}
+  100% { opacity: 1; transform: scale(0.9) translateY(0);}
+}
+
+/* Efecto de resplandor en las flores */
+.flower {
+  filter: drop-shadow(0 0 24px #ff69b4) drop-shadow(0 0 40px #ffe066);
+  transition: filter 0.4s;
+}
+.flower:hover {
+  filter: drop-shadow(0 0 48px #ff69b4) drop-shadow(0 0 80px #ffe066) brightness(1.2);
+  transform: scale(1.05);
+}
+
+/* Animación de luces más brillante */
+.flower__light {
+  animation: lightGlow 2s alternate infinite, light-ans 4s linear infinite backwards;
+  box-shadow: 0 0 24px #ffe066, 0 0 40px #ff69b4, 0 0 80px #fff;
+}
+@keyframes lightGlow {
+  0% { filter: blur(0.2vmin) brightness(1); }
+  100% { filter: blur(1vmin) brightness(2); }
+}
+
 .flowers {
   position: relative;
   transform: scale(0.9);
@@ -763,7 +1003,7 @@ body {
   top: -3vmin;
   transform: rotateY(-180deg) scale(0.9) !important;
   -webkit-animation: flower__g-front__leaf-left-ans-2 1s 4.6s ease-in backwards !important;
-          animation: flower__g-front__leaf-left-ans-2 1s 4.6s ease-in backwards !important;
+          animation: flower__g-front__leaf-left-ans 1s 4.6s ease-in backwards !important;
 }
 @-webkit-keyframes flower__g-front__leaf-left-ans-2 {
   0% {
@@ -1370,4 +1610,4 @@ body {
 .container * {
   -webkit-animation-play-state: paused !important;
           animation-play-state: paused !important;
-}/*# sourceMappingURL=main.css.map
+}
