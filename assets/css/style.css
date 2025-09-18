@@ -1,100 +1,309 @@
+/* Importa la fuente Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,900&display=swap');
-*{
-    font-family: 'Poppins',cursive;
+
+* {
+    font-family: 'Poppins', cursive;
+    box-sizing: border-box;
 }
-body{
-    color: azure;
+
+body {
+    color: #fff;
     width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: black;
+    /* Fondo con gradiente animado */
+    background: linear-gradient(135deg, #ffe0f7 0%, #ffe066 100%);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
+    transition: background 0.5s;
+    position: relative;
+    overflow-x: hidden;
 }
-.greetings{
+
+@keyframes gradientBG {
+    0%, 100% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+}
+
+.greetings {
     font-size: 6rem;
     font-weight: 900;
+    letter-spacing: 0.2rem;
+    text-shadow: 0 2px 20px #ff69b4, 0 0 40px #ffe066;
+    margin-bottom: 0.5em;
+    filter: drop-shadow(0 0 10px #fff);
 }
-.greetings > span{
+
+.greetings > span {
     animation: glow 2.5s ease-in-out infinite;
+    padding: 0 0.1em;
+    border-radius: 10px;
+    transition: background 0.3s;
 }
-@keyframes glow{
-    0%, 100%{
+
+/* Animación de entrada para las letras */
+.greetings span {
+    opacity: 0;
+    transform: translateY(-60px) scale(0.8) rotate(-10deg);
+    animation: letterIn 1.2s cubic-bezier(.68,-0.55,.27,1.55) forwards;
+}
+.greetings span:nth-child(1) { animation-delay: 0.1s; }
+.greetings span:nth-child(2) { animation-delay: 0.3s; }
+.greetings span:nth-child(3) { animation-delay: 0.5s; }
+.greetings span:nth-child(4) { animation-delay: 0.7s; }
+.greetings span:nth-child(5) { animation-delay: 0.9s; }
+
+@keyframes letterIn {
+    0% { opacity: 0; transform: translateY(-60px) scale(0.8) rotate(-10deg);}
+    60% { opacity: 1; transform: translateY(10px) scale(1.1) rotate(5deg);}
+    100% { opacity: 1; transform: translateY(0) scale(1) rotate(0);}
+}
+
+@keyframes glow {
+    0%, 100% {
         color: #fff;
         text-shadow: 0 0 12px #fbff00, 0 0 50px #fbff00, 0 0 100px #fbff00;
+        background: rgba(255,255,255,0.1);
     }
-    10%, 90%{
-        color: #696565;
+    10%, 90% {
+        color: #ff69b4;
         text-shadow: none;
-    }
-}
-.greetings > span:nth-child(2){
-    animation-delay: .2s ;
-}
-.greetings > span:nth-child(3){
-    animation-delay: .4s ;
-}
-.greetings > span:nth-child(4){
-    animation-delay: .6s;
-}
-.greetings > span:nth-child(5){
-    animation-delay: .8s;
-}
-
-.description{
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-}
-
-.button a{
-    text-decoration: none;
-    font-size: 1rem;
-    color: #111;
-}
-
-@media screen and (max-width:574px){
-    .greetings{
-        display: block;
-        font-size: 3rem;
-        font-weight: 500;
-        text-align: center;
-    }
-    .description{
-        font-size: 1rem;
-    }
-    
-    .button a{
-        font-size: .5rem;
+        background: rgba(255,255,255,0.0);
     }
 }
 
-.description{
-    color: #fbff00;
+.greetings > span:nth-child(2) { animation-delay: .2s; }
+.greetings > span:nth-child(3) { animation-delay: .4s; }
+.greetings > span:nth-child(4) { animation-delay: .6s; }
+.greetings > span:nth-child(5) { animation-delay: .8s; }
+
+.description {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #ff69b4;
+    text-shadow: 0 0 10px #ffe066;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    background: rgba(255,255,255,0.15);
+    padding: 0.5em 1em;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px #ffe06644;
 }
 
-/* Estilo para el botón */
+/* Efecto de brillo en la descripción */
+.description span {
+    animation: shine 2.5s linear infinite;
+    background: linear-gradient(90deg, #ffe066 0%, #ff69b4 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes shine {
+    0% {background-position: 0% 50%;}
+    100% {background-position: 100% 50%;}
+}
+
+.button {
+    margin-top: 20px;
+}
+
+/* Botón con rebote y sombra animada */
 .button button {
-    background-color: yellow; /* Fondo amarillo */
-    border: none; /* Sin bordes */
-    padding: 10px 20px; /* Ajusta el relleno según tu preferencia */
-    font-size: 18px; /* Tamaño de fuente */
+    animation: bounceIn 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+    background: linear-gradient(90deg, #ffe066 0%, #ff69b4 100%);
+    border: none;
+    padding: 14px 36px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #fff;
     cursor: pointer;
-    position: relative; /* Necesario para el resplandor */
-    border-radius: 20px; /* Esquinas redondeadas */
-    transition: background-color 0.3s ease-in-out; /* Transición suave para el color de fondo */
-  }
-  
-  /* Estilo para el enlace dentro del botón */
-  .button button a {
-    text-decoration: none; /* Elimina el subrayado del enlace */
-    color: inherit; /* Hereda el color del texto del botón */
-  }
-  
-  /* Efecto de resplandor al pasar el cursor sobre el botón */
-  .button button:hover {
-    background-color: orange; /* Cambia el color de fondo al pasar el mouse a naranja */
-    box-shadow: 0 0 10px yellow, 0 0 20px yellow, 0 0 30px yellow; /* Efecto de resplandor amarillo */
-  }
-  
-  
+    border-radius: 30px;
+    box-shadow: 0 0 20px #ff69b4, 0 0 40px #ffe066, 0 0 80px #fff;
+    transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+    position: relative;
+    outline: none;
+}
+
+.button button a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+.button button:hover, .button button:focus {
+    background: linear-gradient(90deg, #ff69b4 0%, #ffe066 100%);
+    box-shadow: 0 0 30px #ff69b4, 0 0 60px #ffe066;
+    transform: scale(1.05);
+}
+
+.button button:hover {
+    animation: bounce 0.6s;
+}
+@keyframes bounceIn {
+    0% { transform: scale(0.7); opacity: 0;}
+    60% { transform: scale(1.1);}
+    100% { transform: scale(1); opacity: 1;}
+}
+@keyframes bounce {
+    0% { transform: scale(1);}
+    30% { transform: scale(1.15);}
+    60% { transform: scale(0.95);}
+    100% { transform: scale(1);}
+}
+
+@media screen and (max-width: 574px) {
+    body {
+        padding: 16px 0 0 0;
+        min-height: 100vh;
+        justify-content: flex-start;
+    }
+    .greetings {
+        font-size: 2.2rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 0.2em;
+        padding: 0 0.2em;
+    }
+    .description {
+        font-size: 1rem;
+        padding: 0.2em 0.5em;
+        margin-bottom: 18px;
+    }
+    .button {
+        margin-top: 10px;
+    }
+    .button button {
+        font-size: 0.95rem;
+        padding: 10px 18px;
+        border-radius: 22px;
+    }
+    .hearts-bg .heart {
+        width: 22px;
+        height: 22px;
+    }
+    .butterfly {
+        width: 24px;
+        height: 24px;
+    }
+    .flower-bg {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* Corazones flotando en el fondo */
+.hearts-bg {
+    position: fixed;
+    left: 0; top: 0;
+    width: 100vw; height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+.heart {
+    position: absolute;
+    width: 32px; height: 32px;
+    background: url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/2764.svg') no-repeat center/contain;
+    opacity: 0.7;
+    animation: floatHeart 8s linear infinite;
+}
+@keyframes floatHeart {
+    0% { transform: translateY(100vh) scale(0.8) rotate(-10deg);}
+    100% { transform: translateY(-10vh) scale(1.2) rotate(20deg);}
+}
+
+/* Mariposas animadas en el fondo */
+.butterflies-bg {
+    position: fixed;
+    left: 0; top: 0;
+    width: 100vw; height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+.butterfly {
+    position: absolute;
+    width: 38px; height: 38px;
+    background: url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f98b.svg') no-repeat center/contain;
+    opacity: 0.85;
+    animation: flyButterfly 10s linear infinite;
+}
+.butterfly:nth-child(1) { left: 8vw; animation-delay: 0s; }
+.butterfly:nth-child(2) { left: 22vw; animation-delay: 2s; }
+.butterfly:nth-child(3) { left: 38vw; animation-delay: 1s; }
+.butterfly:nth-child(4) { left: 57vw; animation-delay: 3s; }
+.butterfly:nth-child(5) { left: 75vw; animation-delay: 1.5s; }
+.butterfly:nth-child(6) { left: 90vw; animation-delay: 4s; }
+
+@keyframes flyButterfly {
+    0% { transform: translateY(100vh) scale(0.8) rotate(-10deg);}
+    20% { transform: translateY(80vh) scale(1) rotate(10deg);}
+    40% { transform: translateY(60vh) scale(1.1) rotate(-5deg);}
+    60% { transform: translateY(40vh) scale(1.2) rotate(15deg);}
+    80% { transform: translateY(20vh) scale(1.1) rotate(-10deg);}
+    100% { transform: translateY(-10vh) scale(1.2) rotate(20deg);}
+}
+
+/* Flores animadas en el fondo */
+.flowers-bg {
+    position: fixed;
+    left: 0; top: 0;
+    width: 100vw; height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+.flower-bg {
+    position: absolute;
+    width: 48px; height: 48px;
+    opacity: 0.7;
+    background: url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f33c.svg') no-repeat center/contain;
+    animation: floatFlower 12s linear infinite;
+}
+.flower-bg--1 { left: 12vw; animation-delay: 0s; }
+.flower-bg--2 { left: 28vw; animation-delay: 2s; }
+.flower-bg--3 { left: 45vw; animation-delay: 4s; }
+.flower-bg--4 { left: 65vw; animation-delay: 1s; }
+.flower-bg--5 { left: 85vw; animation-delay: 3s; }
+
+@keyframes floatFlower {
+    0% { transform: translateY(100vh) scale(0.8) rotate(-10deg);}
+    100% { transform: translateY(-10vh) scale(1.2) rotate(20deg);}
+}
+
+/* Efecto de partículas de luz */
+body::after {
+    content: "";
+    position: fixed;
+    left: 0; top: 0;
+    width: 100vw; height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+    background: radial-gradient(circle at 20% 30%, #fff6 0%, transparent 60%),
+                radial-gradient(circle at 80% 70%, #ffe06655 0%, transparent 70%);
+    animation: shineBG 8s linear infinite;
+}
+
+/* Sombra y brillo en el contenido */
+.greetings, .description, .button {
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 4px 32px #ffe06633, 0 0 0 #fff;
+    backdrop-filter: blur(2px);
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+    width: 8px;
+    background: #ffe066;
+}
+::-webkit-scrollbar-thumb {
+    background: #ff69b4;
+    border-radius: 8px;
+}
+

@@ -18,6 +18,17 @@ body {
   background-color: var(--dark-color);
   overflow: hidden;
   perspective: 1000px;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  background: linear-gradient(135deg, #ffe0f7 0%, #ffe066 100%);
+  background-size: 400% 400%;
+  animation: gradientBG 12s ease infinite;
+  box-shadow: 0 0 80px #ffe06644 inset;
+}
+
+@keyframes gradientBG {
+  0%, 100% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
 }
 
 .night {
@@ -40,6 +51,8 @@ body {
 .flowers {
   position: relative;
   transform: scale(0.9);
+  filter: drop-shadow(0 0 24px #ff69b4) drop-shadow(0 0 40px #ffe066);
+  transition: filter 0.4s;
 }
 
 .flower {
@@ -48,6 +61,8 @@ body {
   transform-origin: bottom center;
   z-index: 10;
   --fl-speed: 0.8s;
+  box-shadow: 0 4px 32px #ffe06633, 0 0 0 #fff;
+  backdrop-filter: blur(2px);
 }
 .flower--1 {
   -webkit-animation: moving-flower-1 4s linear infinite;
@@ -296,7 +311,15 @@ body {
   filter: blur(0.2vmin);
   -webkit-animation: light-ans 4s linear infinite backwards;
           animation: light-ans 4s linear infinite backwards;
+  box-shadow: 0 0 24px #ffe066, 0 0 40px #ff69b4;
+  animation: lightGlow 2s alternate infinite;
 }
+
+@keyframes lightGlow {
+  0% { filter: blur(0.2vmin) brightness(1); }
+  100% { filter: blur(1vmin) brightness(1.5); }
+}
+
 .flower__light:nth-child(odd) {
   background-color: #fce700;
 }
@@ -1347,4 +1370,4 @@ body {
 .container * {
   -webkit-animation-play-state: paused !important;
           animation-play-state: paused !important;
-}/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map
