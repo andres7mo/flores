@@ -1237,6 +1237,89 @@ body::before {
   }
 }
 
+/* Globos animados flotando */
+.balloons-bg {
+  position: fixed;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 5;
+  overflow: hidden;
+}
+.balloon {
+  position: absolute;
+  width: 40px; height: 60px;
+  background: url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f388.svg') no-repeat center/contain;
+  opacity: 0.8;
+  animation: floatBalloon 14s linear infinite;
+}
+.balloon:nth-child(1) { left: 18vw; animation-delay: 0s; }
+.balloon:nth-child(2) { left: 33vw; animation-delay: 3s; }
+.balloon:nth-child(3) { left: 58vw; animation-delay: 6s; }
+.balloon:nth-child(4) { left: 77vw; animation-delay: 9s; }
+
+@keyframes floatBalloon {
+  0% { top: 100vh; transform: scale(0.8) rotate(-8deg);}
+  50% { top: 40vh; transform: scale(1.1) rotate(8deg);}
+  100% { top: -10vh; transform: scale(1) rotate(-8deg);}
+}
+
+/* Estrellas fugaces */
+.shooting-stars-bg {
+  position: fixed;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 6;
+  overflow: hidden;
+}
+.shooting-star {
+  position: absolute;
+  width: 60px; height: 8px;
+  background: linear-gradient(90deg, #fff 0%, #ffe066 100%);
+  border-radius: 8px;
+  opacity: 0.7;
+  animation: shootingStar 3s linear infinite;
+}
+.shooting-star:nth-child(1) { top: 12vh; left: 5vw; animation-delay: 0s;}
+.shooting-star:nth-child(2) { top: 28vh; left: 40vw; animation-delay: 1.2s;}
+.shooting-star:nth-child(3) { top: 55vh; left: 70vw; animation-delay: 2.4s;}
+
+@keyframes shootingStar {
+  0% { opacity: 0; transform: translateX(0) scaleX(0.7);}
+  10% { opacity: 1; }
+  80% { opacity: 1; transform: translateX(120vw) scaleX(1);}
+  100% { opacity: 0; transform: translateX(120vw) scaleX(1);}
+}
+
+/* Confeti animado */
+.confetti-bg {
+  position: fixed;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 7;
+  overflow: hidden;
+}
+.confetti {
+  position: absolute;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: confettiFall 7s linear infinite;
+}
+.confetti:nth-child(1) { left: 10vw; background: #ff69b4; animation-delay: 0s;}
+.confetti:nth-child(2) { left: 25vw; background: #ffe066; animation-delay: 1s;}
+.confetti:nth-child(3) { left: 40vw; background: #1aaa15; animation-delay: 2s;}
+.confetti:nth-child(4) { left: 60vw; background: #00b815; animation-delay: 3s;}
+.confetti:nth-child(5) { left: 80vw; background: #fbff00; animation-delay: 4s;}
+
+@keyframes confettiFall {
+  0% { top: -10vh; transform: scale(1) rotate(0deg);}
+  80% { top: 90vh; transform: scale(1.2) rotate(360deg);}
+  100% { top: 110vh; opacity: 0;}
+}
+
 .long-g {
   position: absolute;
   bottom: 25vmin;
@@ -1610,4 +1693,108 @@ body::before {
 .container * {
   -webkit-animation-play-state: paused !important;
           animation-play-state: paused !important;
+}
+
+/* Mariposas flotando (sustituyen globos) */
+.floating-butterflies-bg {
+  position: fixed;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 8;
+  overflow: hidden;
+}
+.floating-butterfly {
+  position: absolute;
+  width: 48px; height: 48px;
+  background: url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f98b.svg') no-repeat center/contain;
+  opacity: 0.9;
+  animation: floatButterfly 12s linear infinite;
+}
+.floating-butterfly:nth-child(1) { left: 12vw; animation-delay: 0s; }
+.floating-butterfly:nth-child(2) { left: 38vw; animation-delay: 3s; }
+.floating-butterfly:nth-child(3) { left: 62vw; animation-delay: 6s; }
+.floating-butterfly:nth-child(4) { left: 82vw; animation-delay: 9s; }
+
+@keyframes floatButterfly {
+  0% { top: 100vh; transform: scale(0.8) rotate(-10deg);}
+  30% { top: 60vh; transform: scale(1.1) rotate(10deg);}
+  60% { top: 30vh; transform: scale(1.2) rotate(-5deg);}
+  100% { top: -10vh; transform: scale(1) rotate(20deg);}
+}
+
+/* Estrellas luminosas flotando */
+.glow-stars-bg {
+  position: fixed;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 9;
+  overflow: hidden;
+}
+.glow-star {
+  position: absolute;
+  width: 32px; height: 32px;
+  background: url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/2b50.svg') no-repeat center/contain;
+  opacity: 0.85;
+  animation: glowStar 7s linear infinite;
+  filter: drop-shadow(0 0 18px #ffe066) drop-shadow(0 0 32px #fff);
+}
+.glow-star:nth-child(1) { left: 18vw; animation-delay: 0s; }
+.glow-star:nth-child(2) { left: 33vw; animation-delay: 2s; }
+.glow-star:nth-child(3) { left: 58vw; animation-delay: 4s; }
+.glow-star:nth-child(4) { left: 77vw; animation-delay: 6s; }
+
+@keyframes glowStar {
+  0%, 100% { top: 100vh; opacity: 0.85; filter: drop-shadow(0 0 18px #ffe066) drop-shadow(0 0 32px #fff);}
+  50% { top: 40vh; opacity: 1; filter: drop-shadow(0 0 32px #ffe066) drop-shadow(0 0 64px #fff);}
+  80% { top: 10vh; opacity: 0.7; filter: drop-shadow(0 0 18px #ffe066) drop-shadow(0 0 32px #fff);}
+  100% { top: -10vh; opacity: 0;}
+}
+
+/* Más estrellas animadas */
+.star {
+  position: absolute;
+  width: 18px; height: 18px;
+  background: url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/2b50.svg') no-repeat center/contain;
+  opacity: 0.8;
+  animation: twinkleStar 6s linear infinite;
+}
+@keyframes twinkleStar {
+  0%, 100% { opacity: 0.8; transform: scale(1);}
+  50% { opacity: 0.2; transform: scale(1.3);}
+}
+
+/* Efecto de partículas de luz */
+.particles-bg {
+  position: fixed;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 10;
+  overflow: hidden;
+}
+.particle {
+  position: absolute;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 60%, #ffe066 100%);
+  opacity: 0.7;
+  animation: particleMove 9s linear infinite;
+}
+.particle:nth-child(1) { left: 5vw; top: 10vh; animation-delay: 0s;}
+.particle:nth-child(2) { left: 20vw; top: 30vh; animation-delay: 1s;}
+.particle:nth-child(3) { left: 35vw; top: 60vh; animation-delay: 2s;}
+.particle:nth-child(4) { left: 50vw; top: 20vh; animation-delay: 3s;}
+.particle:nth-child(5) { left: 65vw; top: 80vh; animation-delay: 4s;}
+.particle:nth-child(6) { left: 80vw; top: 40vh; animation-delay: 5s;}
+.particle:nth-child(7) { left: 90vw; top: 70vh; animation-delay: 6s;}
+.particle:nth-child(8) { left: 15vw; top: 85vh; animation-delay: 7s;}
+.particle:nth-child(9) { left: 55vw; top: 50vh; animation-delay: 8s;}
+.particle:nth-child(10) { left: 75vw; top: 15vh; animation-delay: 9s;}
+
+@keyframes particleMove {
+  0% { opacity: 0.7; transform: scale(1);}
+  50% { opacity: 1; transform: scale(1.5);}
+  100% { opacity: 0.5; transform: scale(1);}
 }
