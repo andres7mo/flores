@@ -160,7 +160,10 @@ body {
     body {
         padding: 16px 0 0 0;
         min-height: 100vh;
-        justify-content: flex-start;
+        justify-content: center; /* <-- Cambia aquí */
+        align-items: center;     /* <-- Asegura el centrado horizontal */
+        display: flex;           /* <-- Asegura el uso de flexbox */
+        flex-direction: column;  /* <-- Mantén la dirección en columna */
     }
     .greetings {
         font-size: 2.2rem;
