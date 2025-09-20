@@ -24,6 +24,32 @@
         cursor: pointer;
         box-shadow: 0 0 10px #ff69b4;
       }
+      #mensaje-flores {
+        position: fixed;
+        top: 70px;
+        left: 50%;
+        width: 90%;
+        transform: translateX(-50%);
+        z-index: 9998;
+        color: #ffffff;
+        font-size: 1.5rem;
+        text-align: center;
+        font-weight: bold;
+        max-width: 95%;
+        line-height: 1.4;
+        padding: 15px 20px;
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        /* Efecto neón dorado */
+        text-shadow: 
+          0 0 5px #ffd700,
+          0 0 10px #ffd700,
+          0 0 15px #ffd700,
+          0 0 20px #ffd700,
+          0 0 35px #ffd700,
+          0 0 40px #ffd700;
+        animation: neonGlow 2s ease-in-out infinite alternate;
+      }
       @media (max-width: 600px) {
         #play-btn {
           font-size: 1rem;
@@ -31,6 +57,12 @@
         }
         .flowers {
           transform: scale(0.7);
+        }
+        #mensaje-flores {
+          font-size: 0.99rem;
+          width: 90%;
+          top: 65px;
+/*           padding: 10px 10px; */
         }
       }
       /* Ajusta el contenido para móvil */
@@ -43,6 +75,9 @@
 <body class="container">
     <audio id="bg-music" src="img/Floricienta.mp3" loop></audio>
     <button id="play-btn">Reproducir música</button>
+    <div id="mensaje-flores">
+      Que estas flores amarillas iluminen tu día con su belleza radiante.<br>¡Feliz 21 de septiembre!
+    </div>
     <div class="night"></div>
     <div class="flowers">
       <div class="flower flower--1">
@@ -318,30 +353,11 @@
       <div class="star" style="left:68vw;top:28vh;animation-delay:4.3s;"></div>
       <div class="star" style="left:88vw;top:7vh;animation-delay:5.5s;"></div>
     </div>
-   <!--  <div class="petals-bg">
-      <div class="petal"></div>
-      <div class="petal"></div>
-      <div class="petal"></div>
-      <div class="petal"></div>
-    </div>
-    <div class="balloons-bg">
-      <div class="balloon"></div>
-      <div class="balloon"></div>
-      <div class="balloon"></div>
-      <div class="balloon"></div>
-    </div> -->
     <div class="shooting-stars-bg">
       <div class="shooting-star"></div>
       <div class="shooting-star"></div>
       <div class="shooting-star"></div>
     </div>
-<!--     <div class="confetti-bg">
-      <div class="confetti"></div>
-      <div class="confetti"></div>
-      <div class="confetti"></div>
-      <div class="confetti"></div>
-      <div class="confetti"></div>
-    </div> -->
     <div class="floating-butterflies-bg">
       <div class="floating-butterfly"></div>
       <div class="floating-butterfly"></div>
